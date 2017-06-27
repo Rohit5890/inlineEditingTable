@@ -25,30 +25,29 @@
         selectedRow :{}
       }
 
-    $scope.getTemplate = function(employee){
-      debugger;
-       return( employee.id === $scope.model.selectedRow.id ? 'editable' : 'normal' );
-    }
-    $scope.editDetails= function(employee){
-      $scope.model.selectedRow = angular.copy(employee);
-    }
-    $scope.saveDetails= function (index) {
-      $scope.model.Employee[index] = angular.copy($scope.model.selectedRow);
-      $scope.resetSelection();
-    }
-    $scope.addRow = function(index){
-      var item={
-        id:'',
-        name:'',
-        age:''
+      $scope.getTemplate = function(employee){
+         return( employee.id === $scope.model.selectedRow.id ? 'editable' : 'normal' );
       }
-      $scope.model.Employee.splice((index+1),0,item);
-    }
-    $scope.deleteRow = function(index){
-      $scope.model.Employee.splice(index,1);
-    }
-    $scope.resetSelection= function(){
-      $scope.model.selectedRow = {};
-    }
-  })
+      $scope.editDetails= function(employee){
+        $scope.model.selectedRow = angular.copy(employee);
+      }
+      $scope.saveDetails= function (index) {
+        $scope.model.Employee[index] = angular.copy($scope.model.selectedRow);
+        $scope.resetSelection();
+      }
+      $scope.addRow = function(index){
+        var item={
+          id:'',
+          name:'',
+          age:''
+        }
+        $scope.model.Employee.splice((index+1),0,item);
+      }
+      $scope.deleteRow = function(index){
+        $scope.model.Employee.splice(index,1);
+      }
+      $scope.resetSelection= function(){
+        $scope.model.selectedRow = {};
+      }
+    })
 })();
